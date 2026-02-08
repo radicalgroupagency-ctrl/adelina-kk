@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelina | Conteúdo Exclusivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="site-bg"></div>
+    <header class="ph-header">
+        <div class="logo">ADE<span class="highlight">LINA</span></div>
+    </header>
+
+    <main class="quiz-container">
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Step 1: Age (Soft) -->
+        <div class="quiz-step active" id="step-1" data-step="1">
+
+            <div class="step-overlay"></div>
+            <div class="step-content">
+                <h1>Tens mais de <span class="highlight">18 anos</span>?</h1>
+                <p>O conteúdo da Adelina é apenas para adultos.</p>
+
+                <div class="btn-group">
+                    <button class="ph-btn primary" onclick="nextStep(2)">SIM, SOU MAIOR</button>
+                    <button class="ph-btn secondary" onclick="blockAccess()">NÃO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Preferences (Medium) -->
+        <div class="quiz-step" id="step-2" data-step="2">
+
+            <div class="step-overlay"></div>
+            <div class="step-content">
+                <h1>Qual é a tua <span class="highlight">preferência</span> na cama?</h1>
+
+                <div class="btn-group vertical">
+                    <button class="ph-btn secondary" onclick="nextStep(3)">FODER COM FORÇA E RAIVA</button>
+                    <button class="ph-btn secondary" onclick="nextStep(3)">CARINHO E MAMADAS GOSTOSAS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Interaction (Hard) -->
+        <div class="quiz-step" id="step-3" data-step="3">
+
+            <div class="step-overlay"></div>
+            <div class="step-content">
+                <h1>O que mais te excita ver <span class="highlight">agora</span>?</h1>
+                <p>Escolhe o que queres que a Adelina faça para ti.</p>
+
+                <div class="btn-group">
+                    <button class="ph-btn primary" onclick="nextStep(4)">VER ELA SE MASTURBANDO</button>
+                    <button class="ph-btn secondary" onclick="nextStep(4)">VER PENETRAÇÃO PROFUNDA</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Explicit (Hardest) -->
+        <div class="quiz-step" id="step-4" data-step="4">
+
+            <div class="step-overlay"></div>
+            <div class="step-content">
+                <h1>Gostas de receber <span class="highlight">nudes e videos</span> no WhatsApp?</h1>
+                <p>Queres ter acesso direto ao privado da Adelina?</p>
+
+                <div class="btn-group">
+                    <button class="ph-btn primary" onclick="startQualifying()">SIM, QUERO ACESSAR AGORA</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="quiz-step" id="step-loading">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h2>A processar as tuas preferências...</h2>
+                <p id="loading-text">A selecionar o melhor conteúdo...</p>
+            </div>
+        </div>
+
+        <!-- Blocked -->
+        <div class="quiz-step" id="step-blocked">
+            <div class="loading-content">
+                <h1>Acesso Negado</h1>
+                <p>Tens de ter 18+ para entrar.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
