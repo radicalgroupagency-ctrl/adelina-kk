@@ -20,47 +20,19 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: 100dvh;
+    /* Better mobile support */
     align-items: center;
-    overflow: hidden;
-    /* Prevent scrollbars from floating elements */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
     position: relative;
+    width: 100%;
 }
 
-/* Dynamic Emoji Background */
-body::before {
-    content: "🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦 🍑 🍆 💦";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    font-size: 4rem;
-    opacity: 0.15;
-    /* Subtle visibility */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-    z-index: 0;
-    pointer-events: none;
-    transform: rotate(15deg);
-    animation: floatPattern 60s linear infinite;
-    word-spacing: 50px;
-    letter-spacing: 50px;
-    line-height: 150px;
-    user-select: none;
-    filter: blur(2px);
-}
 
-@keyframes floatPattern {
-    0% {
-        transform: rotate(15deg) translateY(0);
-    }
 
-    100% {
-        transform: rotate(15deg) translateY(-100px);
-    }
-}
+
+
 
 .site-bg {
     position: fixed;
@@ -69,13 +41,11 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('img/bg-blur.jpg.jpeg');
+    background-image: url('img/background.jpeg');
     background-size: cover;
     background-position: center;
-    /* Initial 'Sketch' State: Black & white, high contrast, blurry */
-    filter: grayscale(100%) contrast(200%) blur(15px) brightness(0.7);
-    transform: scale(1.1);
-    transition: filter 1.5s ease-in-out;
+    filter: brightness(0.4);
+    /* Darken for readability */
 }
 
 .ph-header {
