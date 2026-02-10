@@ -1,6 +1,6 @@
 // Core state
 let currentStep = 1;
-const totalSteps = 4;
+const totalSteps = 7;
 
 // Configuration
 const REDIRECT_URL = "https://ivanacir-typebot-viewer.ad2ez3.easypanel.host/my-typebot-iqwxg0v";
@@ -12,23 +12,21 @@ function nextStep(stepNumber) {
         currentEl.classList.remove('active');
     }
 
-    // Progressive Reveal Calculation
-    // Total steps = 4 (including loading)
-    // Step 1 (Initial): Grayscale 100%, Contrast 200%, Blur 15px
-    // Step 2: Grayscale 66%, Contrast 166%, Blur 10px
-    // Step 3: Grayscale 33%, Contrast 133%, Blur 5px
-    // Step 4: Grayscale 0%, Contrast 100%, Blur 0px
+    // Update progress bar
+    const progress = (stepNumber / totalSteps) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
 
-    const totalLevels = 3; // Steps to fully reveal (2, 3, 4)
-    const currentLevel = stepNumber - 1; // 0 to 3
+    // Progressive Reveal Calculation
+    const totalLevels = totalSteps - 1; // Steps to fully reveal
+    const currentLevel = stepNumber - 1;
 
     // Calculate reduction factor (1 -> 0)
     const ratio = Math.max(0, 1 - (currentLevel / totalLevels));
 
     // Base values
     const maxBlur = 15;
-    const maxGrayscale = 100; // %
-    const maxContrastBoost = 100; // % (on top of 100%)
+    const maxGrayscale = 100;
+    const maxContrastBoost = 100;
 
     const newBlur = maxBlur * ratio;
     const newGrayscale = maxGrayscale * ratio;
@@ -51,7 +49,7 @@ function nextStep(stepNumber) {
 
 function startQualifying() {
     // Hide last question
-    document.getElementById('step-4').classList.remove('active');
+    document.getElementById(`step-${totalSteps}`).classList.remove('active');
 
     // Show loading
     const loadingEl = document.getElementById('step-loading');
